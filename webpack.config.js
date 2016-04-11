@@ -1,28 +1,30 @@
+'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
-    app: './js/main.js',
-    ratefinder: './js/ratefinder.js'
+    app: './src/main.js',
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', query: { presets: ['react','es2015']} },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader', exclude: /node_modules/}
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js'
   },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
-        }
-      }
-    ]
-  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({ template: 'src/index.tpl.html', inject: 'body',filename: 'index.html' }),
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
+  ],
   stats: {
     colors: true
-  },
-  devtool: 'source-map'
+  }
 };
