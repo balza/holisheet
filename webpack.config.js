@@ -7,11 +7,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    app: './src/main.js',
+    app: './src/index.js',
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', query: { presets: ['react','es2015']} },
+      { test: /\.js$/, loader: 'babel-loader', query: { presets: ['react','es2015']}, exclude: /node_modules/ },
       { test: /\.less$/, loader: 'style-loader!css-loader!less-loader', exclude: /node_modules/}
     ]
   },
@@ -21,7 +21,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: 'src/index.tpl.html', inject: 'body',filename: 'index.html' }),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
   ],
   stats: {

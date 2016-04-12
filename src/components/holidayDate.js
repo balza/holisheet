@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-var HolidayDate = React.createClass({
+export let HolidayDate = React.createClass({
   render: function() {
     return (
       <div className="holidayDate">
@@ -11,4 +11,4 @@ var HolidayDate = React.createClass({
   }
 });
 
-ReactDOM.render(<HolidayDate />, document.getElementById('root'));
+//ReactDOM.render(<HolidayDate />, document.getElementById('root'));

@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './less/styles.less';
+import HolidayDate from './holidayDate';
+import '../less/styles.less';
 
-const Holisheet = React.createClass({
+const App = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
@@ -12,4 +13,4 @@ const Holisheet = React.createClass({
   }
 });
 
-ReactDOM.render(<Holisheet />, document.getElementById('root'));
+export default App
