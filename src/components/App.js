@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HolidayDate from './holidayDate';
+import HolidayDate from './HolidayDate';
+import HolidayList from './HolidayList';
 import '../less/styles.less';
 
 const App = React.createClass({
   render: function() {
     return (
-      <div className="commentBox">
+      <div>
         Hello, world! I am a CommentBox.
+        <HolidayDate />
+        <HolidayList />        
       </div>
     );
   }

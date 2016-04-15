@@ -2,13 +2,13 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
-  entry: {
-    app: './src/index.js',
-  },
+  devtool: 'cheap-module-eval-source-map',
+  entry:[ 
+    'webpack-hot-middleware/client',
+    './src/index.js'
+  ],
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', query: { presets: ['react','es2015']}, exclude: /node_modules/ },
@@ -17,11 +17,12 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].bundle.js'
+    filename: 'main.bundle.js',
+    publicPath: '/build/'
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
   ],
   stats: {
     colors: true

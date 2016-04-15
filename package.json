@@ -5,31 +5,32 @@
   "main": "index.html",
   "scripts": {
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
-    "start": "http-server ./build -p 9000",
+    "start-node": "node server",
     "webpack": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/balza/es6-tutorial.git"
+    "url": "git+https://github.com/balza/holisheet.git"
   },
   "author": "balza",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/balza/es6-tutorial/issues"
+    "url": "https://github.com/balza/holisheet/issues"
   },
-  "homepage": "https://github.com/balza/es6-tutorial#readme",
+  "homepage": "https://github.com/balza/holisheet#readme",
   "devDependencies": {
     "babel-cli": "^6.7.5",
     "babel-core": "^6.7.6",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
+    "body-parser": "^1.15.0",
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.15.0",
-    "http-server": "^0.9.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "babel-preset-react": "^6.5.0",
