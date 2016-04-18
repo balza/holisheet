@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HolidayDate from './HolidayDate';
+import HolidayTextInput from './HolidayTextInput';
 import PlannedHolidaysList from '../containers/PlannedHolidaysList';
 import '../less/styles.less';
 
 const App = () => (
       <div>
-        Hello, world! I am a CommentBox.
-        <HolidayDate />
+        <HolidayTextInput />
         <PlannedHolidaysList />        
       </div>
 )

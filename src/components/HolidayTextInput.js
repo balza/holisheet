@@ -13,7 +13,7 @@ class HolidayTextInput extends Component {
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
-      if (this.props.newHoliday {
+      if (this.props.newHoliday) {
         this.setState({ text: '' })
       }
     }
@@ -45,15 +45,14 @@ class HolidayTextInput extends Component {
         onKeyDown={this.handleSubmit.bind(this)} />
     );
   }
+}
 
-  HolidayTextInput.propTypes = {
-    onSave: PropTypes.func.isRequired,
-    text: PropTypes.string,
-    placeholder: PropTypes.string,
-    editing: PropTypes.bool,
-    newHoliday: PropTypes.bool
-  }
-
-};
+HolidayTextInput.propTypes = {
+  onSave: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  placeholder: PropTypes.string,
+  editing: PropTypes.bool,
+  newHoliday: PropTypes.bool
+}
 
 export default HolidayTextInput;
