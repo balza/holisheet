@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HolidayDate from './HolidayDate';
-import HolidayList from './HolidayList';
+import PlannedHolidaysList from '../containers/PlannedHolidaysList';
 import '../less/styles.less';
 
-const App = React.createClass({
-  render: function() {
-    return (
+const App = () => (
       <div>
         Hello, world! I am a CommentBox.
         <HolidayDate />
-        <HolidayList />        
+        <PlannedHolidaysList />        
       </div>
-    );
-  }
-});
+)
 
 export default App

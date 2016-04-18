@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Holiday from "./Holiday"
 
-const HolidayList = ({ holidays, onHolidayClick }) => (
+const HolidayList = ({ holidays, onHolidayClick} ) => (
   <ul>
     {holidays.map(holiday =>
       <Holiday
