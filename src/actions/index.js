@@ -1,22 +1,5 @@
-let nextTodoId = 0
-export const addTodo = (text) => {
-  return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
-  }
-}
+export const ADD_HOLIDAY = 'ADD_HOLIDAY'
 
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  }
-}
-
-export const toggleHoliday = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
+export function addHoliday(text) {
+  return { type: types.ADD_HOLIDAY, text }
 }

@@ -1,39 +1,26 @@
-const holiday = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      }
-    case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
-        return state
-      }
+import {ADD_HOLIDAY} from '../actions/index' 
 
-      return Object.assign({}, state, {
-        completed: !state.completed
-      })
-    default:
-      return state
+const initialState = [
+  {
+    text: 'Use Redux',
+    completed: false,
+    id: 0
   }
-}
+]
 
-const holidays = (state = [], action) => {
+export default function holidays(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_HOLIDAY:
       return [
-        ...state,
-        holiday(undefined, action)
+        {
+          id: state.reduce((maxId, holiday) => Math.max(holiday.id, maxId), -1) + 1,
+          completed: false,
+          text: action.text
+        },
+        ...state
       ]
-    case 'TOGGLE_TODO':
-      return state.map(t =>
-        holiday(t, action)
-      )
+
     default:
       return state
   }
 }
-
-export default holidays
-

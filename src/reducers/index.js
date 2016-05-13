@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import holidays from './holidays' 
 
-const holisheetApp = combineReducers({
+const rootReducer = combineReducers({
   holidays
 })
 
-export default holisheetApp 
+export default rootReducer 

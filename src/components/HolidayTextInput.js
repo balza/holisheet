@@ -24,7 +24,7 @@ class HolidayTextInput extends Component {
   }
 
   handleBlur(e) {
-    if (!this.props.newTodo) {
+    if (!this.props.newHoliday) {
       this.props.onSave(e.target.value)
     }
   }
@@ -34,7 +34,7 @@ class HolidayTextInput extends Component {
       <input className={
         classnames({
           edit: this.props.editing,
-          'new-todo': this.props.newHoliday
+          'new-holiday': this.props.newHoliday
         })}
         type="text"
         placeholder={this.props.placeholder}
@@ -55,4 +55,4 @@ HolidayTextInput.propTypes = {
   newHoliday: PropTypes.bool
 }
 
-export default HolidayTextInput;
+export default HolidayTextInput

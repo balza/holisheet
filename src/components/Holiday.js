@@ -1,24 +1,31 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes} from 'react'
 
-const Holiday = React.createClass({
-  render: function() {
-    return (
-      <li
-        onClick={onClick}
-        style={{
-          textDecoration: completed ? 'line-through' : 'none'
-        }}
-        >
-        {date}
-      </li>
-    );
+class Holiday extends Component {
+  
+  constructor(props, context) {
+    super(props, context)
   }
-});
 
-Holiday.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  date: PropTypes.string.isRequired
+  render() {
+    const { holiday } = this.props
+
+    return (
+      <li>
+        <div className="view">
+          <input className="toggle" type="checkbox"/>
+          <label>
+            {holiday.text} 
+          </label>
+          <button className="destroy"/>
+        </div>
+      </li>
+    ) 
+  }
+
 }
 
-export default Holiday;
+Holiday.propTypes = {
+  holiday: PropTypes.object.isRequired
+}
+
+export default Holiday

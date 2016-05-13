@@ -2,11 +2,11 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import holisheetApp  from './reducers'
-import App from './components/App'
+import App from './containers/App'
+import configureStore from './store/configureStore'
+import './less/styles.less'
 
-let store = createStore(holisheetApp)
+const store = configureStore()
 
 render(
   <Provider store={store}>
