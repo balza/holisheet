@@ -26,12 +26,14 @@ function getFormatter(showTime) {
 }
 
 const Picker = React.createClass({
+
   getDefaultProps() {
     return {
       showTime: SHOW_TIME,
-      disabled: false,
-    };
+      disabled: false
+    }
   },
+
   render() {
     const props = this.props;
     const calendar = (<Calendar
@@ -39,7 +41,8 @@ const Picker = React.createClass({
       defaultValue={now}
       timePicker={props.showTime ? timePickerElement : null}
       disabledDate={props.disabledDate}
-    />);
+    />)
+
     return (<DatePicker
       animation="slide-up"
       disabled={props.disabled}
@@ -63,7 +66,7 @@ const Picker = React.createClass({
         }
       }
     </DatePicker>)
-  },
+  }
 })
 
 export default Picker 

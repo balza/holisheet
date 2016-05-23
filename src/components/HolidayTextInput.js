@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Picker from '../components/Picker'
+import DateTimeFormat from 'gregorian-calendar-format'
 
 class HolidayTextInput extends Component {
 
@@ -12,7 +13,6 @@ class HolidayTextInput extends Component {
   }
 
   onChange(field, value) {
-    console.log('onChange', field, value && getFormatter(SHOW_TIME).format(value));
     this.setState({
       [field]: value,
     })
@@ -22,11 +22,11 @@ class HolidayTextInput extends Component {
     if (!endValue) {
       return false;
     }
-    const startValue = this.props.startValue;
+    const startValue = this.state.startValue;
     if (!startValue) {
       return false;
     }
-    return SHOW_TIME ? endValue.getTime() < startValue.getTime() :
+    return Picker.SHOW_TIME ? endValue.getTime() < startValue.getTime() :
     endValue.compareToDay(startValue) <= 0;
   }
 
@@ -34,11 +34,11 @@ class HolidayTextInput extends Component {
     if (!startValue) {
       return false;
     }
-    const endValue = this.props.endValue;
+    const endValue = this.state.endValue;
     if (!endValue) {
       return false;
     }
-    return SHOW_TIME ? endValue.getTime() < startValue.getTime() :
+    return Picker.SHOW_TIME ? endValue.getTime() < startValue.getTime() :
     startValue.compareToDay(endValue) >= 0;
   }
 
