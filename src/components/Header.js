@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <header className="header">
         <h1>Holiday</h1>
-        <HolidayTextInput newTodo onSave={this.handleSave.bind(this)} placeholder="What needs to be done?" />
+        <HolidayTextInput/>
       </header>
     ) 
   }
